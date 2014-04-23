@@ -2,7 +2,7 @@ package com.gwt.card.client;
 
 import org.apache.commons.logging.Log;
 
-import sun.security.krb5.internal.PAData;
+import com.gwt.card.shared.Data;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
@@ -28,6 +28,42 @@ public class GwtCard implements EntryPoint {
 			+ "connection and try again.";
 	
 	LoginServiceAsync loginService = GWT.create(LoginService.class);
+	
+	DataServiceAsync dataService = GWT.create(DataService.class);
+	
+	void renderPublic(final Label nameLabel, Label lastNameLabel, Label streetLabel, Label codeLabel,
+			Label cityLabel, Label telephoneLabel, Label emailLabel, Label wwwLabel, 
+			Label profLabel, Image img){
+		
+		dataService.getData(new AsyncCallback<Data>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				//do sth with err
+			}
+
+			@Override
+			public void onSuccess(Data result) {
+				nameLabel.setText(result.getName());
+				lastNameLabel.setText(result.getLastName());
+				streetLabel.setText(result.getStreet());
+				codeLabel.setText(result.getCode());
+				cityLabel.setText(result.getCity());
+				telephoneLabel.setText(result.getTel());
+				emailLabel.setText(result.getEmail());
+				wwwLabel.setText(result.getWww());
+				profLabel.setText(result.getProf());
+				img.setUrl(result.getPhoto());
+			}
+		});
+		
+	}
+	
+	void renderPrivate(TextBox pandaTb, TextBox nameTb, TextBox lastNameTb, TextBox streetTb,
+			TextBox codeTb, TextBox cityTb, TextBox telephoneTb, TextBox emailTb, TextBox wwwTb, 
+			TextBox profTb){
+		
+	}
 
 	public void onModuleLoad() {
 		DOM.getElementById("wrapper3").getStyle().setDisplay(Display.NONE);

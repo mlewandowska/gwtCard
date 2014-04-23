@@ -17,6 +17,16 @@
     <url-pattern>/gwtcard/login</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>dataServlet</servlet-name>
+    <servlet-class>com.gwt.card.server.DataServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>dataServlet</servlet-name>
+    <url-pattern>/gwtcard/data</url-pattern>
+  </servlet-mapping>
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>GwtCard.html</welcome-file>
