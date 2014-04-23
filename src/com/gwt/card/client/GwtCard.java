@@ -91,6 +91,7 @@ public class GwtCard implements EntryPoint {
 		final Button loginBtn = new Button("Zaloguj się");
 		final Button logoutBtn = new Button("Wyloguj się");
 		Button saveBtn = new Button("Zapisz");
+		final Label saveStatusLbl = new Label();
 		
 		final Label nameLabel = new Label("Marta");
 		final Label lastNameLabel = new Label("Lewandowska");
@@ -121,6 +122,7 @@ public class GwtCard implements EntryPoint {
 		RootPanel.get("btnHolder").add(logoutBtn);
 		logoutBtn.setVisible(false);
 		RootPanel.get("saveBtn").add(saveBtn);
+		RootPanel.get("saveStatus").add(saveStatusLbl);
 		
 		RootPanel.get("nameLabel").add(nameLabel);
 		RootPanel.get("lastNameLabel").add(lastNameLabel);
@@ -198,6 +200,41 @@ public class GwtCard implements EntryPoint {
 				DOM.getElementById("wrapper").getStyle().setDisplay(Display.BLOCK);
 				DOM.getElementById("wrapper3").getStyle().setDisplay(Display.NONE);
 				renderPublic(nameLabel, lastNameLabel, streetLabel, codeLabel, cityLabel, telephoneLabel, emailLabel, wwwLabel, profLabel, img);
+			}
+		});
+
+		saveBtn.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				saveStatusLbl.setText("");
+				String panda = pandaTb.getText();
+				String name =nameTb.getText();
+				String lastName =lastNameTb.getText();
+				String street =streetTb.getText();
+				String code =codeTb.getText();
+				String city =cityTb.getText();
+				String telephone =telephoneTb.getText();
+				String email =emailTb.getText();
+				String www =wwwTb.getText();
+				String prof =profTb.getText();
+				
+				Data dataToUpdate = new Data(name, lastName, street, city, code, prof, 
+						telephone, www, email, panda);
+				
+				dataService.setData(dataToUpdate, new AsyncCallback<Void>() {
+
+					@Override
+					public void onFailure(Throwable caught) {
+						saveStatusLbl.setText("Nope bro.");
+					}
+
+					@Override
+					public void onSuccess(Void result) {
+						renderPrivate(pandaTb, nameTb, lastNameTb, streetTb, codeTb, cityTb, 
+								telephoneTb, emailTb, wwwTb, profTb);
+						saveStatusLbl.setText("Zapisano.");
+					}
+				});
 			}
 		});
 	}

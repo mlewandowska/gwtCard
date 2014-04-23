@@ -108,3 +108,8 @@ body {
 	display: table-cell;
 	padding-right: 2ex;
 }
+
+#saveBtn, #saveStatus {
+	display: table-cell;
+	padding: 5px;
+}
