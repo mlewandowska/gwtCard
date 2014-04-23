@@ -1,0 +1,2 @@
+serviceClass: com.gwt.card.client.LoginService
+path: 67746CA7CE5B8257CF9547288746AEAB.gwt.rpc

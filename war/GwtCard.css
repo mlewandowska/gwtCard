@@ -1,0 +1,110 @@
+/** Add css rules here for your application. */
+
+body {
+	background-color: #4F393C;
+}
+
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1024px;
+	background-color: #F4EB9E;
+	color: #4F393C;
+	overflow: auto;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+}
+
+#wrapper2{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1024px;	
+}
+
+#wrapper3 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1004px;
+	background-color: #F4EB9E;
+	color: #4F393C;
+	overflow: auto;
+	padding: 10px;
+}
+
+#wrapper3 .gwt-TextBox {
+	width: 500px;
+	padding: 5px;
+	margin: 5px;
+}
+
+#wrapper3 > div > div {
+	display: table-cell;	
+}
+
+#wrapper3 > div > p {
+	display: table-cell;
+	width: 150px;	
+	text-align: right;
+}
+
+#photoHolder {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	width: 334px;
+	float: left;
+	background-color: #FB573B;
+	color: #F4EB9E;
+	text-align: center;
+}
+
+#infoHolder{
+	padding-top: 60px;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 670px;
+	float: right;
+	text-align: center;
+}
+
+#nameHolder {
+	display: block;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#nameLabel, #lastNameLabel  {
+	display: table-cell;
+	font-size: 60px;
+}
+
+#profLabel{
+	font-size: 30px;
+	margin-bottom: 100px;
+}
+
+#nameLabel {
+	padding-right: 1ex;
+}
+
+#btnHolder{
+	display: table-cell;
+	padding: 5px;
+}
+
+#userName, #passwd {
+	display: table-cell;
+	padding: 5px;
+}
+
+#addressLabel, #telephoneLabel, #emailLabel, #wwwLabel{
+	font-size: 24px;
+}
+
+#telephoneLabel, #emailLabel, #wwwLabel{
+	display: table-cell;
+	padding-right: 2ex;
+}
