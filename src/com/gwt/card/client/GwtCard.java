@@ -3,7 +3,6 @@ package com.gwt.card.client;
 import org.apache.commons.logging.Log;
 
 import com.gwt.card.shared.Data;
-
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.ImageElement;
@@ -31,9 +30,9 @@ public class GwtCard implements EntryPoint {
 	
 	DataServiceAsync dataService = GWT.create(DataService.class);
 	
-	void renderPublic(final Label nameLabel, Label lastNameLabel, Label streetLabel, Label codeLabel,
-			Label cityLabel, Label telephoneLabel, Label emailLabel, Label wwwLabel, 
-			Label profLabel, Image img){
+	void renderPublic(final Label nameLabel, final Label lastNameLabel, final Label streetLabel, final Label codeLabel,
+			final Label cityLabel, final Label telephoneLabel, final Label emailLabel, final Label wwwLabel, 
+			final Label profLabel, final Image img){
 		
 		dataService.getData(new AsyncCallback<Data>() {
 
@@ -59,10 +58,31 @@ public class GwtCard implements EntryPoint {
 		
 	}
 	
-	void renderPrivate(TextBox pandaTb, TextBox nameTb, TextBox lastNameTb, TextBox streetTb,
-			TextBox codeTb, TextBox cityTb, TextBox telephoneTb, TextBox emailTb, TextBox wwwTb, 
-			TextBox profTb){
+	void renderPrivate(final TextBox pandaTb, final TextBox nameTb, final TextBox lastNameTb, final TextBox streetTb,
+			final TextBox codeTb, final TextBox cityTb, final TextBox telephoneTb, final TextBox emailTb, final TextBox wwwTb, 
+			final TextBox profTb){
 		
+		dataService.getData(new AsyncCallback<Data>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				//do sth with err
+			}
+
+			@Override
+			public void onSuccess(Data result) {
+				pandaTb.setText(result.getPhoto());
+				nameTb.setText(result.getName());
+				lastNameTb.setText(result.getLastName());
+				streetTb.setText(result.getStreet());
+				codeTb.setText(result.getCode());
+				cityTb.setText(result.getCity());
+				telephoneTb.setText(result.getTel());
+				emailTb.setText(result.getEmail());
+				wwwTb.setText(result.getWww());
+				profTb.setText(result.getProf());
+			}
+		});
 	}
 
 	public void onModuleLoad() {
