@@ -1,0 +1,2 @@
+serviceClass: com.gwt.card.client.DataService
+path: 7368921F66CA6DD39CC372BDF5DC6CD8.gwt.rpc

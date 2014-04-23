@@ -1,7 +1,11 @@
 package com.gwt.card.shared;
 
-public class Data {
+import java.io.Serializable;
 
+public class Data implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
 	String name;
 	String lastName;
 	String street;

@@ -92,21 +92,21 @@ public class GwtCard implements EntryPoint {
 		final Button logoutBtn = new Button("Wyloguj się");
 		Button saveBtn = new Button("Zapisz");
 		
-		Label nameLabel = new Label("Marta");
-		Label lastNameLabel = new Label("Lewandowska");
+		final Label nameLabel = new Label("Marta");
+		final Label lastNameLabel = new Label("Lewandowska");
 		//Label addressLabel = new Label("ul. Ulica 1/0 70-777 Nigdzie");
-		Label streetLabel = new Label("ul. Ulica 1/0");
-		Label codeLabel = new Label("70-777");
-		Label cityLabel = new Label("Nigdzie");
-		Label telephoneLabel = new Label("900 000 000");
-		Label emailLabel = new Label("email@address.pl");
-		Label wwwLabel = new Label("www.panda.net");
-		Label profLabel = new Label("Zawód");
+		final Label streetLabel = new Label("ul. Ulica 1/0");
+		final Label codeLabel = new Label("70-777");
+		final Label cityLabel = new Label("Nigdzie");
+		final Label telephoneLabel = new Label("900 000 000");
+		final Label emailLabel = new Label("email@address.pl");
+		final Label wwwLabel = new Label("www.panda.net");
+		final Label profLabel = new Label("Zawód");
 		
 		final TextBox userNameTb = new TextBox();
 		final PasswordTextBox passwdTb = new PasswordTextBox();
 		
-		Image img = new Image();
+		final Image img = new Image();
 		
 		img.setUrl("http://2.bp.blogspot.com/-ne8lPYIz980/UvKmgjBL6fI/AAAAAAAANoE/jfwk-bZYK74/s1600/pan+da.jpg");
 		
@@ -134,16 +134,16 @@ public class GwtCard implements EntryPoint {
 		RootPanel.get("wwwLabel").add(wwwLabel);
 		
 		//edycja
-		TextBox pandaTb = new TextBox();
-		TextBox nameTb = new TextBox();
-		TextBox lastNameTb = new TextBox();
-		TextBox streetTb = new TextBox();
-		TextBox codeTb = new TextBox();
-		TextBox cityTb = new TextBox();
-		TextBox telephoneTb = new TextBox();
-		TextBox emailTb = new TextBox();
-		TextBox wwwTb = new TextBox();
-		TextBox profTb = new TextBox();
+		final TextBox pandaTb = new TextBox();
+		final TextBox nameTb = new TextBox();
+		final TextBox lastNameTb = new TextBox();
+		final TextBox streetTb = new TextBox();
+		final TextBox codeTb = new TextBox();
+		final TextBox cityTb = new TextBox();
+		final TextBox telephoneTb = new TextBox();
+		final TextBox emailTb = new TextBox();
+		final TextBox wwwTb = new TextBox();
+		final TextBox profTb = new TextBox();
 		
 		RootPanel.get("imageTb").add(pandaTb);
 		RootPanel.get("streetTb").add(streetTb);
@@ -155,6 +155,9 @@ public class GwtCard implements EntryPoint {
 		RootPanel.get("profTb").add(profTb);
 		RootPanel.get("nameTb").add(nameTb);
 		RootPanel.get("lastNameTb").add(lastNameTb);
+		
+		renderPublic(nameLabel, lastNameLabel, streetLabel, codeLabel, cityLabel, telephoneLabel, 
+				emailLabel, wwwLabel, profLabel, img);
 		
 		loginBtn.addClickHandler(new ClickHandler() {
 			
@@ -173,6 +176,7 @@ public class GwtCard implements EntryPoint {
 						passwdTb.setVisible(false);
 						DOM.getElementById("wrapper").getStyle().setDisplay(Display.NONE);
 						DOM.getElementById("wrapper3").getStyle().setDisplay(Display.BLOCK);
+						renderPrivate(pandaTb, nameTb, lastNameTb, streetTb, codeTb, cityTb, telephoneTb, emailTb, wwwTb, profTb);
 					}
 					
 					@Override
@@ -193,6 +197,7 @@ public class GwtCard implements EntryPoint {
 				passwdTb.setVisible(true);
 				DOM.getElementById("wrapper").getStyle().setDisplay(Display.BLOCK);
 				DOM.getElementById("wrapper3").getStyle().setDisplay(Display.NONE);
+				renderPublic(nameLabel, lastNameLabel, streetLabel, codeLabel, cityLabel, telephoneLabel, emailLabel, wwwLabel, profLabel, img);
 			}
 		});
 	}
